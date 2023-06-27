@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "container-bench"
+version = "0.1.0"
+description = "Benchmark comparing the performance of various containers - dataclasses, pydantic, namedtuple"
+authors = ["treykeown <2755914+treykeown@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "container_bench"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+arguably = "^1.2.4"
+numpy = "^1.25.0"
+matplotlib = "^3.7.1"
+pandas = "^2.0.2"
+pydantic = "^1.10.9"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+mypy = "^1.4.1"
+ruff = "^0.0.275"
+pre-commit = "^3.3.3"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+pytest-randomly = "^3.12.0"
+nox = "^2023.4.22"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.3"
+mkdocstrings = {extras = ["python"], version = "^0.22.0"}
+mkdocs-material = "^9.1.17"
+
+[tool.ruff]
+line-length = 120
+exclude = ["etc/"]
+
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+disallow_untyped_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+exclude = "^etc/"
+
+[tool.coverage.run]
+omit = [".*", "*/site-packages/*"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
