@@ -2,6 +2,7 @@
 
 import dataclasses
 import json
+import sys
 import timeit
 from collections import namedtuple, defaultdict
 from typing import Callable
@@ -73,6 +74,7 @@ def dataclass_():
 
     coords = create()
     serialized = serialize()
+    print(f"{sys.getsizeof(coords)=}")
     print(coords)
     print(deserialize())
 
@@ -120,6 +122,7 @@ def pydantic_():
 
     coords = create()
     serialized = serialize()
+    print(f"{sys.getsizeof(coords)=}")
     print(coords)
     print(deserialize())
 
@@ -150,6 +153,7 @@ def namedtuple_():
 
     coords = create()
     serialized = serialize()
+    print(f"{sys.getsizeof(coords)=}")
     print(coords)
     print(deserialize())
 
